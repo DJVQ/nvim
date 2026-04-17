@@ -30,40 +30,21 @@ local function FloatingTerminal()
 		vim.bo[terminal_state.buf].bufhidden = "hide"
 	end
 
-	local width = math.floor(vim.o.columns * 0.8)
-	local height = math.floor(vim.o.lines * 0.8)
-	local row = math.floor((vim.o.lines - height) / 2)
-	local col = math.floor((vim.o.columns - width) / 2)
+	vim.cmd("botright split")
+	vim.cmd("resize 15")
 
-	terminal_state.win = vim.api.nvim_open_win(terminal_state.buf, true, {
-		relative = "editor",
-		width = width,
-		height = height,
-		row = row,
-		col = col,
-		style = "minimal",
-		border = "rounded",
-	})
+	terminal_state.win = vim.api.nvim_get_current_win()
+	vim.api.nvim_win_set_buf(terminal_state.win, terminal_state.buf)
 
-	vim.wo[terminal_state.win].winblend = 0
-	vim.wo[terminal_state.win].winhighlight = "Normal:FloatingTermNormal,FloatBorder:FloatingTermBorder"
-	vim.api.nvim_set_hl(0, "FloatingTermNormal", { bg = "none" })
-	vim.api.nvim_set_hl(0, "FloatingTermBorder", { bg = "none" })
-
-    local current_dir = vim.fn.getcwd()
-
-	local has_terminal = false
-	local lines = vim.api.nvim_buf_get_lines(terminal_state.buf, 0, -1, false)
-	for _, line in ipairs(lines) do
-		if line ~= "" then
-			has_terminal = true
-			break
-		end
+	local current_dir = vim.fn.expand("%:p:h")
+	if current_dir == "" then
+		current_dir = vim.fn.getcwd()
 	end
-	if not has_terminal then
+
+	if vim.bo[terminal_state.buf].buftype ~= "terminal" then
 		vim.fn.termopen(os.getenv("SHELL"), {
-            cwd = current_dir
-        })
+			cwd = current_dir
+		})
 	end
 
 	terminal_state.is_open = true
@@ -72,7 +53,7 @@ local function FloatingTerminal()
 	vim.api.nvim_create_autocmd("BufLeave", {
 		buffer = terminal_state.buf,
 		callback = function()
- 			if terminal_state.is_open and terminal_state.win and vim.api.nvim_win_is_valid(terminal_state.win) then
+			if terminal_state.is_open and terminal_state.win and vim.api.nvim_win_is_valid(terminal_state.win) then
 				vim.api.nvim_win_close(terminal_state.win, false)
 				terminal_state.is_open = false
 			end
