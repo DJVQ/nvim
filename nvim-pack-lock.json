@@ -5,6 +5,14 @@
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
+    "efmls-configs-nvim": {
+      "rev": "5dc52088c231f2721f545570fcb541b04802ce6b",
+      "src": "https://github.com/creativenull/efmls-configs-nvim"
+    },
+    "fzf-lua": {
+      "rev": "83f7195972538beee3a40932b38ccd86c8cc0f06",
+      "src": "https://www.github.com/ibhagwan/fzf-lua"
+    },
     "gitsigns.nvim": {
       "rev": "8d82c240f190fc33723d48c308ccc1ed8baad69d",
       "src": "https://www.github.com/lewis6991/gitsigns.nvim"
@@ -20,6 +28,10 @@
     "nvim-tree.lua": {
       "rev": "d277467fc0d1d0e2bca88165a1de6b526f9f6fe8",
       "src": "https://www.github.com/nvim-tree/nvim-tree.lua"
+    },
+    "nvim-treesitter": {
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     }
   }
 }

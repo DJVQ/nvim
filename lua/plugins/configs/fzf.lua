@@ -1,0 +1,22 @@
+require("fzf-lua").setup({})
+
+local keyset = vim.keymap.set
+
+keyset("n", "<leader>ff", function()
+	require("fzf-lua").files()
+end, { desc = "FZF Files" })
+keyset("n", "<leader>fg", function()
+	require("fzf-lua").live_grep()
+end, { desc = "FZF Live Grep" })
+keyset("n", "<leader>fb", function()
+	require("fzf-lua").buffers()
+end, { desc = "FZF Buffers" })
+keyset("n", "<leader>fh", function()
+	require("fzf-lua").help_tags()
+end, { desc = "FZF Help Tags" })
+keyset("n", "<leader>fx", function()
+	require("fzf-lua").diagnostics_document()
+end, { desc = "FZF Diagnostics Document" })
+keyset("n", "<leader>fX", function()
+	require("fzf-lua").diagnostics_workspace()
+end, { desc = "FZF Diagnostics Workspace" })
