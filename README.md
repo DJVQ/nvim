@@ -9,6 +9,7 @@
 
 - lualine: show git status and file info
 - mason: manage lsp
+- lspconfig: lsp config
 - blink.cmp: syntax highlighting
 - gitsigns: some git operation, like diff
 - catppuccin: theme
