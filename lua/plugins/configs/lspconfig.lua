@@ -46,7 +46,6 @@ vim.filetype.add({
     },
 })
 vim.lsp.config("gopls", {
-    root_dir = require("lspconfig.util").root_pattern("go.work", "go.mod", ".git"),
     settings = {
         gopls = {
             completeUnimported = true,
