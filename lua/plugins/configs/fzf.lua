@@ -1,22 +1,25 @@
-require("fzf-lua").setup({})
+vim.cmd.packadd("fzf-lua")
+
+require("fzf-lua").setup({
+    files = {
+        fd_opts = [[--color=never --type f --hidden --follow --exclude .git]],
+    }
+})
 
 local keyset = vim.keymap.set
 
 keyset("n", "<leader>ff", function()
-	require("fzf-lua").files()
-end, { desc = "FZF Files" })
+    require("fzf-lua").files()
+end, { desc = "Find Files" })
+
 keyset("n", "<leader>fg", function()
-	require("fzf-lua").live_grep()
-end, { desc = "FZF Live Grep" })
+    require("fzf-lua").live_grep()
+end, { desc = "Live Grep" })
+
 keyset("n", "<leader>fb", function()
-	require("fzf-lua").buffers()
-end, { desc = "FZF Buffers" })
+    require("fzf-lua").buffers()
+end, { desc = "Buffers" })
+
 keyset("n", "<leader>fh", function()
-	require("fzf-lua").help_tags()
-end, { desc = "FZF Help Tags" })
-keyset("n", "<leader>fx", function()
-	require("fzf-lua").diagnostics_document()
-end, { desc = "FZF Diagnostics Document" })
-keyset("n", "<leader>fX", function()
-	require("fzf-lua").diagnostics_workspace()
-end, { desc = "FZF Diagnostics Workspace" })
+    require("fzf-lua").help_tags()
+end, { desc = "Help Tags" })

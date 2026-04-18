@@ -17,4 +17,8 @@ opt.backup = false
 opt.writebackup = false
 opt.swapfile = false
 
+opt.formatoptions:remove("r")
+
 opt.encoding = "UTF-8"
+
+cmd.colorscheme("catppuccin")

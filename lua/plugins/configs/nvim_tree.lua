@@ -1,24 +1,16 @@
+vim.cmd.packadd("nvim-tree.lua")
 require("nvim-tree").setup({
-	filters = {
-		dotfiles = false,
-	},
-	renderer = {
-		group_empty = true,
-	},
+    filters = {
+        dotfiles = false,
+    },
+    renderer = {
+        group_empty = true,
+    },
 })
 
-local keyset = vim.keymap.set
-
-keyset("n", "<leader>e", function()
-	require("nvim-tree.api").tree.toggle()
+vim.keymap.set("n", "<leader>e", function()
+    require("nvim-tree.api").tree.toggle()
 end, { desc = "Toggle NvimTree" })
-keyset("n", "<leader>o", function()
-	require("nvim-tree.api").tree.open()
+vim.keymap.set("n", "<leader>fe", function()
+    require("nvim-tree.api").tree.open()
 end, { desc = "Focus NvimTree" })
-
---vim.api.nvim_set_hl(0, "NvimTreeNormalNC", { bg = "none" })
---vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
---vim.api.nvim_set_hl(0, "NvimTreeSignColumn", { bg = "none" })
---vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "none" })
---vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { fg = "#2a2a2a", bg = "none" })
---vim.api.nvim_set_hl(0, "NvimTreeEndOfBuffer", { bg = "none" })
