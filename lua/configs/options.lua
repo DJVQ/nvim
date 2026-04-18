@@ -21,4 +21,3 @@ opt.formatoptions:remove("r")
 
 opt.encoding = "UTF-8"
 
-cmd.colorscheme("catppuccin")

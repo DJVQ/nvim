@@ -10,6 +10,7 @@ require("configs.lsp")
 require("plugins.vim_pack")
 
 -- plugins configs
+require("plugins.configs.catppuccin")
 require("plugins.configs.mason")
 require("plugins.configs.blink_cmp")
 require("plugins.configs.treesitter")

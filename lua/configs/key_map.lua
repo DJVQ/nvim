@@ -4,7 +4,7 @@ vim.g.maplocalleader = " "
 -- reload
 vim.keymap.set("n", "<leader>rr", function()
     for name, _ in pairs(package.loaded) do
-        if name:match("^config") then
+        if name:match("^configs") or name:match("^plugins") then
             package.loaded[name] = nil
         end
     end
