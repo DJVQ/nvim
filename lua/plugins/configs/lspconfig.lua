@@ -32,7 +32,16 @@ vim.lsp.config("lua_ls", {
 vim.lsp.enable("lua_ls")
 
 -- c c++
-vim.lsp.config("clangd", {})
+vim.lsp.config("clangd", {
+    root_markers = { "compile_commands.json", ".git" },
+    cmd = {
+        "clangd",
+        "--background-index",
+        "--clang-tidy",
+        "--completion-style=detailed",
+        "--header-insertion=never",
+    },
+})
 vim.lsp.enable("clangd")
 
 -- go
