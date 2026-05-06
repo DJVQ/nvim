@@ -1,4 +1,4 @@
-vim.cmd.packadd("nvim-lspconfig")
+vim.cmd("packadd " .. "nvim-lspconfig")
 
 vim.diagnostic.config({
     virtual_text = true,
@@ -12,16 +12,20 @@ vim.lsp.config("lua_ls", {
         Lua = {
             runtime = {
                 version = "LuaJIT",
-                path = vim.split(package.path, ";"),
+                --                path = vim.split(package.path, ";"),
             },
             diagnostics = {
-                globals = { "vim" },
+                globals = { "vim", "ngx" },
 
             },
             workspace = {
-                library = vim.api.nvim_get_runtime_file("", true),
+                library = {
+                    vim.env.VIMRUNTIME,
+                    "/usr/local/openresty/lualib",
+                },
                 checkThirdParty = false,
-
+                maxPreload = 200,
+                preloadFileSize = 20,
             },
             format = {
                 enable = true,

@@ -1,4 +1,4 @@
-vim.cmd.packadd("toggleterm.nvim")
+vim.cmd("packadd " .. "toggleterm.nvim")
 require("toggleterm").setup({
     size = function(term)
         if term.direction == "horizontal" then

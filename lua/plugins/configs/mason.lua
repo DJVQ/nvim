@@ -1,2 +1,2 @@
-vim.cmd.packadd("mason.nvim")
+vim.cmd("packadd " .. "mason.nvim")
 require("mason").setup({})

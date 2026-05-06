@@ -1,4 +1,4 @@
-vim.cmd.packadd("gitsigns.nvim")
+vim.cmd("packadd " .. "gitsigns.nvim")
 require("gitsigns").setup()
 
 vim.keymap.set("n", "]h", function()

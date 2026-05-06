@@ -3,7 +3,7 @@ local function lsp_name()
     return #clients > 0 and clients[1].name or "No LSP"
 end
 
-vim.cmd.packadd("lualine.nvim")
+vim.cmd("packadd " .. "lualine.nvim")
 require("lualine").setup({
     options = {
         theme = "auto",

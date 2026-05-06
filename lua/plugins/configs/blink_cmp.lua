@@ -1,7 +1,7 @@
 vim.api.nvim_create_autocmd("InsertEnter", {
     once = true,
     callback = function()
-        vim.cmd.packadd("blink.cmp")
+        vim.cmd("packadd " .. "blink.cmp")
         require("blink.cmp").setup({
             keymap = {
                 preset = "default",
