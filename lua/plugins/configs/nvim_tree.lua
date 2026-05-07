@@ -1,5 +1,8 @@
 vim.cmd("packadd " .. "nvim-tree.lua")
 require("nvim-tree").setup({
+    view = {
+        adaptive_size = true,
+    },
     filters = {
         dotfiles = false,
     },
