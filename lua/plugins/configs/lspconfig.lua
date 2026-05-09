@@ -69,6 +69,20 @@ vim.lsp.config("gopls", {
 })
 vim.lsp.enable("gopls")
 
+vim.lsp.config("ngx_ls", {
+    cmd = { "nginx-language-server" },
+    filetypes = { "nginx" },
+    root_markers = { "nginx.conf", ".git" },
+    settings = {
+        nginx = {
+            diagnostics = true,
+            hover = true,
+            completion = true,
+        }
+    },
+})
+vim.lsp.enable("ngx_ls")
+
 -- lazy lsp
 vim.api.nvim_create_autocmd("BufWritePre", {
     callback = function()

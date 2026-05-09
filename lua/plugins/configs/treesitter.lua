@@ -2,7 +2,7 @@ vim.cmd("packadd nvim-treesitter")
 
 require("nvim-treesitter").setup({
     ensure_installed = {
-        "c", "lua", "python"
+        "c", "lua", "python", "go"
     },
     highlight = { enable = true },
     indent = { enable = true },
@@ -10,7 +10,7 @@ require("nvim-treesitter").setup({
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "c", "lua", "python" },
+    pattern = { "c", "lua", "python", "go" },
     callback = function()
         vim.wo.foldmethod = "expr"
         vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
