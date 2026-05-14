@@ -1,3 +1,6 @@
+vim.cmd("packadd " .. "nvim-web-devicons")
+require("nvim-web-devicons").setup({})
+
 vim.cmd("packadd " .. "fzf-lua")
 
 require("fzf-lua").setup({
