@@ -15,3 +15,8 @@ end
 
 -- set key
 vim.keymap.set("n", "<leader>rr", reload_config, { desc = "reload configs" })
+
+vim.keymap.set("n", "<leader>tn", ":tabnew<CR>", { desc = "New tab" })
+vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Close tab" })
+vim.keymap.set("n", "<leader>th", ":tabprevious<CR>", { desc = "Prev tab" })
+vim.keymap.set("n", "<leader>tl", ":tabnext<CR>", { desc = "Next tab" })
